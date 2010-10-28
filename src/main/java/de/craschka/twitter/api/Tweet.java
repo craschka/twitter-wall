@@ -8,4 +8,12 @@ public class Tweet {
         this.content = content;
         this.author = author;
     }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public Content getContent() {
+        return content;
+    }
 }

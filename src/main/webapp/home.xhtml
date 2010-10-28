@@ -26,7 +26,7 @@
         <h:form id="searchForm">
 
             <p:dataList value="#{twitterBean.tweets}" var="Tweet" itemType="square">
-                #{Tweet.author.name}: #{Tweet.content.content}
+                #{Tweet.author}: #{Tweet.content}
             </p:dataList>
 
             <fc:panel caption="Search Criteria">
