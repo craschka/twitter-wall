@@ -28,6 +28,6 @@ public class Twitter4jTwitterSearch implements TwitterSearch{
                 tweets.add(new Tweet(new Content(tweet.getText()),new Author(tweet.getFromUser())));
             }
         }
-        return tweetsh;  //To change body of implemented methods use File | Settings | File Templates.
+        return tweets;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }
