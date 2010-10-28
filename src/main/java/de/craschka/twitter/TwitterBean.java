@@ -12,7 +12,19 @@ public class TwitterBean {
     @Inject
     private TwitterSearch twitterSearch;
 
-    public List<Tweet> getTweets(){
-        return twitterSearch.search("#netos");
+    private String criteria;
+
+    public String getCriteria() {
+        return criteria;
     }
+
+    public void setCriteria(String criteria) {
+        this.criteria = criteria;
+    }
+
+    public List<Tweet> getTweets(){
+        return twitterSearch.search(criteria!=null?criteria:"#netos");
+    }
+
+  
 }
