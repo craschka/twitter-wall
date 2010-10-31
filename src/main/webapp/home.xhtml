@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:fc="http://java.sun.com/jsf/composite/fluttercode/component"
-                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-                template="/WEB-INF/templates/template.xhtml"
-                xmlns:p="http://primefaces.prime.com.tr/ui">
-    <ui:define name="content">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fc="http://java.sun.com/jsf/composite/fluttercode/component"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	template="/WEB-INF/templates/template.xhtml"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+	<ui:define name="content">
 
-        <h:form id="searchForm">
+		<h:form id="searchForm">
 
-            <p:dataList value="#{twitterBean.tweets}" var="Tweet" itemType="square">
+			<p:dataList value="#{twitterBean.tweets}" var="Tweet"
+				itemType="square">
                 #{Tweet.author}: #{Tweet.content}
             </p:dataList>
 
-            <h:inputText value="#{twitterBean.criteria}" id="criteria" />
+			<p:dataGrid var="Tweet" value="#{twitterBean.tweets" columns="3"
+				rows="12" paginator="true" effect="true">
+				<p:column>
+					<p:panel header="#{Tweet.author}" style="text-align:center">
+						<h:panelGrid columns="1" style="width:100%">
+							<!--  p:graphicImage value="/images/cars/#{car.manufacturer}.jpg" /-->
 
-            <h:commandButton value="Search" action="home" />
+							<h:outputText value="#{car.content}" />
 
-        </h:form>
+							<!-- p:commandLink update="carDetail" oncomplete="carDialog.show()"
+								title="View Detail">
+								<p:graphicImage value="/images/search.png" />
+								<f:setPropertyActionListener value="#{car}"
+									target="#{tableBean.selectedCar}" />
+							</p:commandLink-->
+						</h:panelGrid>
+					</p:panel>
+				</p:column>
+			</p:dataGrid>
 
-    </ui:define>
+			<h:inputText value="#{twitterBean.criteria}" id="criteria" />
+
+			<h:commandButton value="Search" action="home" />
+
+		</h:form>
+
+	</ui:define>
 </ui:composition>
