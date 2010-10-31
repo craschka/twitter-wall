@@ -3,7 +3,6 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:fc="http://java.sun.com/jsf/composite/fluttercode/component"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	template="/WEB-INF/templates/template.xhtml"
 	xmlns:p="http://primefaces.prime.com.tr/ui">
@@ -11,19 +10,14 @@
 
 		<h:form id="searchForm">
 
-			<p:dataList value="#{twitterBean.tweets}" var="Tweet"
-				itemType="square">
-                #{Tweet.author}: #{Tweet.content}
-            </p:dataList>
-
-			<p:dataGrid var="Tweet" value="#{twitterBean.tweets" columns="3"
+			<p:dataGrid var="Tweet" value="#{twitterBean.tweets}" columns="3"
 				rows="12" paginator="true" effect="true">
 				<p:column>
 					<p:panel header="#{Tweet.author}" style="text-align:center">
 						<h:panelGrid columns="1" style="width:100%">
 							<!--  p:graphicImage value="/images/cars/#{car.manufacturer}.jpg" /-->
 
-							<h:outputText value="#{car.content}" />
+							<h:outputText value="#{Tweet.content}" />
 
 							<!-- p:commandLink update="carDetail" oncomplete="carDialog.show()"
 								title="View Detail">

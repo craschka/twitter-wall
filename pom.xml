@@ -90,7 +90,7 @@
     </repositories>
 
     <build>
-        <finalName>sandboxdemo</finalName>
+        <finalName>twitter-wall</finalName>
         <plugins>
             <!--  Facilitates downloading source and javadoc in Eclipse -->
             <plugin>
