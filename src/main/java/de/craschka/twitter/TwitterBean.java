@@ -3,16 +3,30 @@ package de.craschka.twitter;
 import de.craschka.twitter.api.Tweet;
 import de.craschka.twitter.api.TwitterSearch;
 
+import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
 import java.util.List;
 
-@Model
-public class TwitterBean {
+@SessionScoped
+@Named
+public class TwitterBean implements Serializable {
     @Inject
-    private TwitterSearch twitterSearch;
+    private transient TwitterSearch twitterSearch;
 
     private String criteria;
+    private List<Tweet> tweets;
+
+    public void updateTweets(){
+        tweets.addAll(0,twitterSearch.search());
+    }
+
+    public void newSearch(){
+        tweets.clear();
+        tweets.addAll(twitterSearch.search(criteria!=null?criteria:"#netos"));
+    }
 
     public String getCriteria() {
         return criteria;
@@ -23,7 +37,10 @@ public class TwitterBean {
     }
 
     public List<Tweet> getTweets(){
-        return twitterSearch.search(criteria!=null?criteria:"#netos");
+        if (tweets == null){
+            tweets = twitterSearch.search(criteria!=null?criteria:"#netos");
+        }
+        return tweets;
     }
 
   

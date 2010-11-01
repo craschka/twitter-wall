@@ -124,6 +124,7 @@
                     <fileNames>
                         <fileName>${project.build.directory}/${build.finalName}.war</fileName>
                     </fileNames>
+                    <unpack>false</unpack>
                 </configuration>
             </plugin>
 

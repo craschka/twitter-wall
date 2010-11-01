@@ -6,15 +6,17 @@
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	template="/WEB-INF/templates/template.xhtml"
 	xmlns:p="http://primefaces.prime.com.tr/ui">
+    <link type="text/css" rel="stylesheet"  href="#{request.contextPath}/css/base/skin.css" />
 	<ui:define name="content">
 
 		<h:form id="searchForm">
 
-			<p:dataGrid var="Tweet" value="#{twitterBean.tweets}" columns="3"
-				rows="12" paginator="true" effect="true">
-				<p:column>
-					<p:panel header="#{Tweet.author}" style="text-align:center">
-						<h:panelGrid columns="1" style="width:100%">
+			<p:dataGrid id="tweets" var="Tweet" value="#{twitterBean.tweets}" columns="3" 
+				rows="12" paginator="true" effect="true" >
+				<p:column style="width:33% heigth:33%">
+                    
+					<p:panel header="#{Tweet.author}" style="text-align:left width:100% heigth:100%" >
+						<h:panelGrid columns="1" style="width:100% heigth:100%" >
 							<!--  p:graphicImage value="/images/cars/#{car.manufacturer}.jpg" /-->
 
 							<h:outputText value="#{Tweet.content}" />
@@ -32,7 +34,8 @@
 
 			<h:inputText value="#{twitterBean.criteria}" id="criteria" />
 
-			<h:commandButton value="Search" action="home" />
+			<p:commandButton value="Search" action="#{twitterBean.newSearch}" update="searchForm"/>
+            <p:commandButton value="Update" action="#{twitterBean.updateTweets}" update="searchForm"/>
 
 		</h:form>
 

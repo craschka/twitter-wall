@@ -6,6 +6,10 @@ body {
 	font-size: 10px;
 }
 
+.ui-widget {
+    height: 200px;
+}
+
 #header {
 	height: 120px;
 	border-bottom: 3px solid #c0c0c0;
