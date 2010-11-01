@@ -21,6 +21,7 @@ public class TwitterBean implements Serializable {
 
     public void updateTweets(){
         tweets.addAll(0,twitterSearch.search());
+        tweets = tweets.subList(0,9);
     }
 
     public void newSearch(){

@@ -12,7 +12,7 @@
 		<h:form id="searchForm">
 
 			<p:dataGrid id="tweets" var="Tweet" value="#{twitterBean.tweets}" columns="3" 
-				rows="12" paginator="true" effect="true" >
+				rows="12" paginator="false" effect="true" >
 				<p:column style="width:33% heigth:33%">
                     
 					<p:panel header="#{Tweet.author}" style="text-align:left width:100% heigth:100%" >
