@@ -13,7 +13,7 @@ import java.util.List;
 
 @SessionScoped
 @Named("twitter")
-public class TwitterBean implements Serializable, TwitterBeanController {
+public class TwitterBean implements Serializable {
     @EJB
     private transient TwitterSearch twitterSearch;
 
@@ -22,7 +22,6 @@ public class TwitterBean implements Serializable, TwitterBeanController {
     private int counter = 1;
     private String[] colors = new String[]{"red","green","blue","red","red","red","red","red","red"};
 
-    @Override
     public void updateTweets(){
         if (tweets == null){
             tweets = new ArrayList<Tweet>(9);            
@@ -32,23 +31,19 @@ public class TwitterBean implements Serializable, TwitterBeanController {
         tweets = tweets.subList(0,Math.min(searchedTweets.size(),9));
     }
 
-    @Override
     public void newSearch(){
         tweets.clear();
         tweets.addAll(twitterSearch.search(criteria!=null||criteria.length()==0?criteria:"#archos10"));
     }
 
-    @Override
     public String getCriteria() {
         return criteria;
     }
 
-    @Override
     public void setCriteria(String criteria) {
         this.criteria = criteria;
     }
 
-    @Override
     public List<Tweet> getTweets(){
         if (tweets == null){
             List<Tweet> searchedTweets = twitterSearch.search(criteria != null ? criteria : "#archos10");
@@ -57,8 +52,6 @@ public class TwitterBean implements Serializable, TwitterBeanController {
         return tweets;
     }
 
-
-    @Override
     public String getColors(){
         System.out.println(colors[counter]);
         return colors[counter++ % 9];
