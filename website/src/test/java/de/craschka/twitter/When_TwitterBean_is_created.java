@@ -26,7 +26,6 @@ public class When_TwitterBean_is_created {
         sut = new TwitterBean();
         mockTwitterSearch = mock(TwitterSearch.class);
         when(mockTwitterSearch.search("#archos10")).thenReturn(get20Tweets());
-        //when(mockTwitterSearch.search()).thenReturn(get20Tweets());
         setPrivateField(sut,"twitterSearch",mockTwitterSearch);
     }
 
