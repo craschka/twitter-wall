@@ -26,6 +26,7 @@ public class When_TwitterBean_is_created {
         sut = new TwitterBean();
         mockTwitterSearch = mock(TwitterSearch.class);
         when(mockTwitterSearch.search("#archos10")).thenReturn(get20Tweets());
+        //when(mockTwitterSearch.search()).thenReturn(get20Tweets());
         setPrivateField(sut,"twitterSearch",mockTwitterSearch);
     }
 
@@ -41,6 +42,13 @@ public class When_TwitterBean_is_created {
         List<Tweet> tweets = sut.getTweets();
 
         assertThat(tweets.size(),is(equalTo(9)));
+    }
+
+    @Test
+    public void update_should_run_the_same_search(){
+        sut.updateTweets();
+
+        verify(mockTwitterSearch).search();
     }
 
     private List<Tweet> get20Tweets() {

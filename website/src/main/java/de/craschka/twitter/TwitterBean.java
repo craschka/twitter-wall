@@ -8,6 +8,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @SessionScoped
@@ -23,8 +24,12 @@ public class TwitterBean implements Serializable, TwitterBeanController {
 
     @Override
     public void updateTweets(){
-        tweets.addAll(0,twitterSearch.search());
-        tweets = tweets.subList(0,9);
+        if (tweets == null){
+            tweets = new ArrayList<Tweet>(9);            
+        }
+        List<Tweet> searchedTweets = twitterSearch.search();
+        tweets.addAll(0, searchedTweets);
+        tweets = tweets.subList(0,Math.min(searchedTweets.size(),9));
     }
 
     @Override
@@ -46,8 +51,8 @@ public class TwitterBean implements Serializable, TwitterBeanController {
     @Override
     public List<Tweet> getTweets(){
         if (tweets == null){
-            List<Tweet> tweets1 = twitterSearch.search(criteria != null ? criteria : "#archos10");
-            tweets = tweets1.subList(0,Math.min(tweets1.size(),9));
+            List<Tweet> searchedTweets = twitterSearch.search(criteria != null ? criteria : "#archos10");
+            tweets = searchedTweets.subList(0,Math.min(searchedTweets.size(),9));
         }
         return tweets;
     }
