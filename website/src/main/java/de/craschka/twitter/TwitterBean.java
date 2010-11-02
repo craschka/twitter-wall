@@ -30,7 +30,7 @@ public class TwitterBean implements Serializable, TwitterBeanController {
     @Override
     public void newSearch(){
         tweets.clear();
-        tweets.addAll(twitterSearch.search(criteria!=null?criteria:"#netos"));
+        tweets.addAll(twitterSearch.search(criteria!=null||criteria.length()==0?criteria:"#archos10"));
     }
 
     @Override
