@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>de.craschka.twitter</groupId>
+    <artifactId>website</artifactId>
+    <packaging>war</packaging>
+    <name>Twitter-Wall Website</name>
+    <version>0.1-SNAPSHOT</version>
+
+    <parent>
+        <groupId>de.craschka.twitter</groupId>
+        <artifactId>twitter-wall</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.craschka.twitter</groupId>
+            <artifactId>api</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+
+        <!--
+              Used for app servers that do not contain slf4j (i.e. Default
+              Glassfish Install)
+          -->
+        <!--
+          <dependency>
+              <groupId>org.slf4j</groupId>
+              <artifactId>slf4j-jdk14</artifactId>
+              <version>1.5.8</version>
+              <scope>compile</scope>
+          </dependency>
+           -->
+
+
+        <!--
+              Default Implementation that carries additional validators. Should be
+              removed in the event of the server using an alternate validations
+              implementation since the proprietary ones in hibernate won't be
+              available anymore
+          -->
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.0.0.GA</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <repositories>
+        <!-- Used for main Java EE 6 super pom -->
+        <repository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2/</url>
+            <layout>default</layout>
+        </repository>
+
+
+        <!-- JBoss Repository used for hibernate-validator 4.0.0.GA -->
+        <repository>
+            <id>repository.jboss.org</id>
+            <name>JBoss Repository</name>
+            <url>http://repository.jboss.org/maven2/</url>
+        </repository>
+
+        <repository>
+            <id>prime-repo</id>
+            <name>Prime Technology Maven Repository</name>
+            <url>http://repository.prime.com.tr</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+
+    <build>
+        <finalName>twitter-wall</finalName>
+    </build>
+</project>
