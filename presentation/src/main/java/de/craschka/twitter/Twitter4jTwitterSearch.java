@@ -53,7 +53,7 @@ public class Twitter4jTwitterSearch implements TwitterSearch{
 
         if (result != null){
             for (twitter4j.Tweet tweet : result.getTweets()) {
-                tweets.add(TweetBuilder.create().withContent(tweet.getText()).andAuthor(tweet.getFromUser()));
+                tweets.add(TweetBuilder.create().withContent(tweet.getText() + " http://test abc #cet").andAuthor(tweet.getFromUser()));
             }
         }
         return tweets;  

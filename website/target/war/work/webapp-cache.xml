@@ -23,12 +23,15 @@
           <string>resources/css/base/images/ui-icons_cd0a0a_256x240.png</string>
           <string>resources/css/base/skin.css</string>
           <string>resources/css/screen.css</string>
+          <string>WEB-INF/.faces-config.xml.jsfdia</string>
           <string>WEB-INF/beans.xml</string>
           <string>WEB-INF/faces-config.xml</string>
           <string>WEB-INF/templates/template.xhtml</string>
+          <string>WEB-INF/twittercontent.taglib.xml</string>
           <string>WEB-INF/web.xml</string>
+          <string>WEB-INF/classes/de/craschka/twitter/ContentItemCreator.class</string>
           <string>WEB-INF/classes/de/craschka/twitter/TwitterBean.class</string>
-          <string>WEB-INF/classes/de/craschka/twitter/TwitterBeanController.class</string>
+          <string>WEB-INF/classes/de/craschka/twitter/TwitterContent.class</string>
           <string>WEB-INF/lib/primefaces-2.1.jar</string>
           <string>WEB-INF/lib/api-0.1-SNAPSHOT.jar</string>
         </pathsSet>

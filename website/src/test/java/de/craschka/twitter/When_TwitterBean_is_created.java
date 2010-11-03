@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static de.craschka.twitter.utils.PrivateAccessors.setPrivateField;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
@@ -48,6 +49,15 @@ public class When_TwitterBean_is_created {
         sut.updateTweets();
 
         verify(mockTwitterSearch).search();
+    }
+
+    @Test
+    public void after_update_there_should_be_equal_or_more_tweets_than_before(){
+        int sizeBefore = sut.getTweets().size();
+        sut.updateTweets();
+        int sizeAfter = sut.getTweets().size();
+
+        assertThat(sizeAfter,is(greaterThanOrEqualTo(sizeBefore)));
     }
 
     private List<Tweet> get20Tweets() {

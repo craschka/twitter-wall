@@ -25,4 +25,5 @@ public class When_TwitterSearch_is_called_with_criteria {
     public void the_result_should_be_non_empty(){
         assertThat(tweets.size(),is(greaterThan(0)));
     }
+
 }

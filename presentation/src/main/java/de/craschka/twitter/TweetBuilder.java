@@ -1,8 +1,8 @@
 package de.craschka.twitter;
 
-import de.craschka.twitter.api.Author;
-import de.craschka.twitter.api.Content;
-import de.craschka.twitter.api.Tweet;
+import de.craschka.twitter.api.*;
+
+import java.util.Arrays;
 
 public class TweetBuilder {
     private TweetBuilder(){}

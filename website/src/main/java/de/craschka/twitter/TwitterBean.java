@@ -28,7 +28,7 @@ public class TwitterBean implements Serializable {
         }
         List<Tweet> searchedTweets = twitterSearch.search();
         tweets.addAll(0, searchedTweets);
-        tweets = tweets.subList(0,Math.min(searchedTweets.size(),9));
+        tweets = firstNineElements(tweets);
     }
 
     public void newSearch(){
@@ -47,7 +47,15 @@ public class TwitterBean implements Serializable {
     public List<Tweet> getTweets(){
         if (tweets == null){
             List<Tweet> searchedTweets = twitterSearch.search(criteria != null ? criteria : "#archos10");
-            tweets = searchedTweets.subList(0,Math.min(searchedTweets.size(),9));
+            tweets = firstNineElements(searchedTweets);
+        }
+        return tweets;
+    }
+
+    private List<Tweet> firstNineElements(List<Tweet> searchedTweets) {
+        List<Tweet> tweets = new ArrayList<Tweet>(9);
+        for (int i=0;i<Math.min(searchedTweets.size(),9);i++){
+            tweets.add(searchedTweets.get(i));
         }
         return tweets;
     }

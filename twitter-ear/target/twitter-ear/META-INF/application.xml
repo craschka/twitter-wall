@@ -3,14 +3,14 @@
   <display-name>twitter-ear</display-name>
   <module>
     <web>
-      <web-uri>classes</web-uri>
+      <web-uri>twitter-wall.war</web-uri>
       <context-root>/twitter-wall</context-root>
     </web>
   </module>
   <module>
-    <ejb>classes</ejb>
+    <ejb>presentation.jar</ejb>
   </module>
   <module>
-    <ejb>classes</ejb>
+    <ejb>api.jar</ejb>
   </module>
 </application>
