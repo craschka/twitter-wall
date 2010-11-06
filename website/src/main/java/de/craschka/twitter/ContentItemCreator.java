@@ -48,7 +48,9 @@ public class ContentItemCreator {
     public static void encodeItems(ResponseWriter writer, String message, TwitterLink link) throws IOException {
         String[] words = message.split(" ");
         for (String word : words) {
-            if (word.startsWith("http")){
+            if (word.startsWith("http://twitpic")){
+                encodeTwitpic(writer,word,link);
+            } else if (word.startsWith("http")){
                 encodeLink(writer,word, link);
             } else if (word.startsWith("@")){
                 encodeAuthorLink(writer,word,link);
@@ -58,6 +60,17 @@ public class ContentItemCreator {
             }
             writer.writeText(" ",null);
         }
+    }
+
+    private static void encodeTwitpic(ResponseWriter writer, String word, TwitterLink link) throws IOException {
+        writer.startElement("img", link);
+        String imageid = getTwitpicImageId(word);
+        writer.writeAttribute("src","http://twitpic.com/show/mini/"+imageid,null);
+        writer.endElement("img");
+    }
+
+    private static String getTwitpicImageId(String word) {
+        return word.substring(word.lastIndexOf('/'));
     }
 
     private static void encodeAuthorLink(ResponseWriter writer, String word, TwitterLink link) throws IOException {

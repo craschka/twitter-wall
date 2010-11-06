@@ -2,8 +2,6 @@ package de.craschka.twitter;
 
 import de.craschka.twitter.api.*;
 
-import java.util.Arrays;
-
 public class TweetBuilder {
     private TweetBuilder(){}
     
@@ -25,8 +23,22 @@ public class TweetBuilder {
                 this.content = content;
             }
 
-            public Tweet andAuthor(String author){
-                return new Tweet(new Content(content),new Author(author));
+            public Tweet___ andAuthor(String author){
+                return new Tweet___(new Content(content),new Author(author));
+            }
+        }
+
+        class Tweet___  {
+            private final Content content;
+            private final Author author;
+
+            public Tweet___(Content content, Author author) {
+                this.content = content;
+                this.author = author;
+            }
+
+            public Tweet withImage(String imageURL){
+                return new Tweet(content,author,imageURL);
             }
         }
     }
