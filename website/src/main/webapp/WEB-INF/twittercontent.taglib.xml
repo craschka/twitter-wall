@@ -10,4 +10,12 @@
       <tag-name>twittercontent</tag-name>
       	<handler-class>de.craschka.twitter.TwitterContent</handler-class>
    </tag>
+    <tag>
+        <tag-name>twitterlink</tag-name>
+        <component>
+            <component-type>de.craschka.twitter.TwitterLink</component-type>
+            <renderer-type>de.craschka.twitter.TwitterLinkRenderer</renderer-type>
+        </component>
+    </tag>
+    
 </facelet-taglib>

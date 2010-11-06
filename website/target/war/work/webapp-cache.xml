@@ -32,6 +32,9 @@
           <string>WEB-INF/classes/de/craschka/twitter/ContentItemCreator.class</string>
           <string>WEB-INF/classes/de/craschka/twitter/TwitterBean.class</string>
           <string>WEB-INF/classes/de/craschka/twitter/TwitterContent.class</string>
+          <string>WEB-INF/classes/de/craschka/twitter/TwitterLink$PropertyKeys.class</string>
+          <string>WEB-INF/classes/de/craschka/twitter/TwitterLink.class</string>
+          <string>WEB-INF/classes/de/craschka/twitter/TwitterLinkRenderer.class</string>
           <string>WEB-INF/lib/primefaces-2.1.jar</string>
           <string>WEB-INF/lib/api-0.1-SNAPSHOT.jar</string>
         </pathsSet>
