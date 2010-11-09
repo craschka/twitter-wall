@@ -19,8 +19,6 @@ public class Twitter4jTwitterSearch implements TwitterSearch {
     private Map<String, Long> savedSinces = new HashMap<String, Long>();
     private String lastQuery;
 
-    private static final int MAX_RETURN_VALUES = 9;
-
     @Override
     public List<Tweet> search(String criteria) {
         return search(criteria, null);
@@ -52,10 +50,7 @@ public class Twitter4jTwitterSearch implements TwitterSearch {
 
             if (result != null) {
                 for (twitter4j.Tweet tweet : result.getTweets()) {
-                    tweets.add(TweetBuilder.create()
-                            .withContent(tweet.getText())
-                            .andAuthor(tweet.getFromUser())
-                            .withImage(tweet.getProfileImageUrl()));
+                    tweets.add(new Tweet(tweet.getText(),tweet.getFromUser(),tweet.getProfileImageUrl()));
                 }
             }
         } catch (TwitterException e) {

@@ -11,6 +11,12 @@ public class Tweet {
         this.userImageURL = userImageURL;
     }
 
+     public Tweet(String content, String author, String userImageUrl){
+         this.content = new Content(content);
+         this.author = new Author(author);
+         this.userImageURL = userImageUrl;
+    }
+
     public Author getAuthor() {
         return author;
     }
