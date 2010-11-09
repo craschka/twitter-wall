@@ -20,7 +20,7 @@
         <module>api</module>
     </modules>
     <build>
-        <finalName>twitter-wall</finalName>
+        <finalName>twitterwall</finalName>
         <plugins>
             <!--  Facilitates downloading source and javadoc in Eclipse -->
             <plugin>

@@ -33,6 +33,8 @@
             <p:commandButton value="Search" action="#{twitter.newSearch}" update="searchForm"/>
             <p:commandButton value="Update" action="#{twitter.updateTweets}" update="searchForm"/>
 
+            <p:poll interval="60" listener="#{twitter.updateTweets}" update="tweets" />
+
         </h:form>
 
     </ui:define>

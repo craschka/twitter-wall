@@ -5,6 +5,7 @@ import de.craschka.twitter.api.TwitterSearch;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -27,6 +28,7 @@ public class TwitterBean implements Serializable {
             tweets = new ArrayList<Tweet>(9);            
         }
         List<Tweet> searchedTweets = twitterSearch.search();
+        System.out.println("found "+searchedTweets.size() + " new tweets");
         tweets.addAll(0, searchedTweets);
         tweets = firstNineElements(tweets);
     }

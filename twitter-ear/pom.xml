@@ -76,7 +76,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>twitter-ear</finalName>
+        <finalName>twitterwall-ear</finalName>
     </build>
 
 </project>
