@@ -55,7 +55,7 @@ public class Twitter4jTwitterSearch implements TwitterSearch {
                     tweets.add(TweetBuilder.create()
                             .withContent(tweet.getText())
                             .andAuthor(tweet.getFromUser())
-                            .withImage(twitter.showUser(tweet.getFromUser()).getProfileImageURL().toString()));
+                            .withImage(tweet.getProfileImageUrl()));
                 }
             }
         } catch (TwitterException e) {
